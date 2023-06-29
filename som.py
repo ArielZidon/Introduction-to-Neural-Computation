@@ -156,6 +156,22 @@ class Som:
 
 
 if __name__ == '__main__':
-    data1 = create_data(1000, 3)
-    s = Som(data1, n_iterations=1000, learning_rate=0.1, dima=200, dimb=1).fit_square(data1)
+
+    # uniform square
+    # data1 = create_data(1000, 1)
+    # s = Som(data1, n_iterations=1000, learning_rate=0.1, dima=30, dimb=1).fit_square(data1)
+
+
+    # un-uniform square (first try)
+    # data2 = create_data(1000, 2)
+    # s = Som(data2, n_iterations=1000, learning_rate=0.1, dima=30, dimb=1).fit_square(data2)
+
+
+    # un-uniform square (second try)
+    # data3 = create_data(1000, 3)
+    # s = Som(data3, n_iterations=1000, learning_rate=0.1, dima=30, dimb=1).fit_square(data3)
+
+    # uniform donut
+    data4 = create_data(1000, 4)
+    s = Som(data4, n_iterations=1000, learning_rate=0.1, dima=300, dimb=1).fit_donut(data4)
 

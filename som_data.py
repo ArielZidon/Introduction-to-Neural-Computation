@@ -26,9 +26,9 @@ def create_data(data_size, data_kind=1):
     elif data_kind == 4:  # create donut shape
         n = 0
         while n < data_size:
-            x = random.uniform(-2, 2)
-            y = random.uniform(-2, 2)
-            if 1 <= x ** 2 + y ** 2 <= 2:
+            x = random.uniform(-4, 4)
+            y = random.uniform(-4, 4)
+            if 4 <= x ** 2 + y ** 2 <= 16:
                 data[n, 0] = x
                 data[n, 1] = y
                 n += 1
