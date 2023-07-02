@@ -16,7 +16,7 @@ class Som:
     def initialization(self, data):
         init_radius = max(self.network_dimensions[0], self.network_dimensions[1]) / 2  # radius
         self.data = data
-        # radius decay parameter
+
         time_constant = self.n_iterations / np.log(init_radius)
         x_min = np.min(data[:, 0])
         y_min = np.min(data[:, 1])
@@ -42,7 +42,7 @@ class Som:
                         min_dist = w  # dist
                         bmu_idx = np.array([x, y])  # id
             # decay the SOM parameters
-            r = self.init_radius * np.exp(-i / self.time_constant)  # radius
+            r = self.init_radius * np.exp(-i / self.time_constant)
             l_rate = self.learning_rate * np.exp(-i / self.n_iterations)  # learning rate
             # update weight vector to move closer to input
             # and move its neighbours in 2-D vector space closer
@@ -80,7 +80,7 @@ class Som:
         ax.scatter(self.data[:, 0], self.data[:, 1], alpha=0.3, c='mediumspringgreen')  # plot the data
         ax.scatter([x_n], [y_n], c='darkorange')  # plot the neurons
         ax.set_title(
-            f'Iteration: {t} / {self.n_iterations} | Network Dimensions: {self.network_dimensions[0]}x{self.network_dimensions[1]}')
+            f'Iteration: {t} ')
         plt.show()
 
     def plot_net(self, t):
@@ -108,7 +108,7 @@ class Som:
         ax.plot(neurons_x, neurons_y, color='darkorange', marker='o', linewidth=0, markersize=3)
         ax.scatter(self.data[:, 0], self.data[:, 1], c='mediumspringgreen', alpha=0.3)
         ax.set_title(
-            f'Iteration: {t} / {self.n_iterations} | Network Dimensions: {self.network_dimensions[0]}x{self.network_dimensions[1]}')
+            f'Iteration: {t} / {self.n_iterations}')
         plt.show()
 
     def fit_donut(self, data):
@@ -159,19 +159,19 @@ if __name__ == '__main__':
 
     # uniform square
     # data1 = create_data(1000, 1)
-    # s = Som(data1, n_iterations=1000, learning_rate=0.1, dima=30, dimb=1).fit_square(data1)
+    # s = Som(data1, n_iterations=1000, learning_rate=0.1, dima=200, dimb=1).fit_square(data1)
 
 
     # un-uniform square (first try)
     # data2 = create_data(1000, 2)
-    # s = Som(data2, n_iterations=1000, learning_rate=0.1, dima=30, dimb=1).fit_square(data2)
+    # s = Som(data2, n_iterations=1000, learning_rate=0.1, dima=20, dimb=1).fit_square(data2)
 
 
     # un-uniform square (second try)
     # data3 = create_data(1000, 3)
-    # s = Som(data3, n_iterations=1000, learning_rate=0.1, dima=30, dimb=1).fit_square(data3)
+    # s = Som(data3, n_iterations=1000, learning_rate=0.1, dima=20, dimb=1).fit_square(data3)
 
     # uniform donut
     data4 = create_data(1000, 4)
-    s = Som(data4, n_iterations=1000, learning_rate=0.1, dima=300, dimb=1).fit_donut(data4)
+    s = Som(data4, n_iterations=1000, learning_rate=0.1, dima=20, dimb=1).fit_donut(data4)
 
