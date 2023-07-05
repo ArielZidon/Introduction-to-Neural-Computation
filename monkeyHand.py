@@ -82,7 +82,8 @@ def plot_data(data, title):
 
 class monkey_hand():
     def __init__(self, data):
-        self.som = Som(data=data, n_iterations=1000, learning_rate=0.1, dima=15, dimb=15)
+        #network dimensions 20*20
+        self.som = Som(data=data, n_iterations=1000, learning_rate=0.1, dima=20, dimb=20)
 
     def fit_and_show_changes(self, data, data_type):
         net, time_constant, init_radius, x_min, x_max, y_min, y_max = self.som.initialization(data)
